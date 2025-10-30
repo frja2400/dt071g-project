@@ -4,7 +4,7 @@ using System;
 namespace CustomerRegister
 {
     //Definierar datamodellen och gör den åtkomlig för resten av applikationen.
-    class Customer
+    public class Customer
     {
         public int Id { get; set; }
 
