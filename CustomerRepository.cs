@@ -34,7 +34,6 @@ namespace CustomerRegister
             {
                 Console.WriteLine("Kunde inte hämta kunder från databasen:");
                 Console.WriteLine(ex.Message);
-                Console.ResetColor();
             }
 
             return customers;
@@ -67,7 +66,6 @@ namespace CustomerRegister
             {
                 Console.WriteLine("Kunde inte hämta kunden från databasen:");
                 Console.WriteLine(ex.Message);
-                Console.ResetColor();
 
                 return null;
             }
@@ -83,8 +81,8 @@ namespace CustomerRegister
 
                 var insertCmd = connection.CreateCommand();
                 insertCmd.CommandText = @"
-            INSERT INTO Customers (Name, Email, City, CreatedAt)
-            VALUES (@name, @email, @city, @createdAt);";
+                    INSERT INTO Customers (Name, Email, City, CreatedAt)
+                    VALUES (@name, @email, @city, @createdAt);";
 
                 //Skapa CreatedAt-värde för när kunden läggs till.
                 var createdAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -116,16 +114,112 @@ namespace CustomerRegister
             {
                 Console.WriteLine("Kunde inte addera kunden till databasen:");
                 Console.WriteLine(ex.Message);
-                Console.ResetColor();
 
                 return null;
             }
         }
 
+        //Raderar kund från databasen.
+        public bool DeleteCustomer(int id)
+        {
+            try
+            {
+                using var connection = new SqliteConnection(ConnectionString);
+                connection.Open();
 
+                var deleteCmd = connection.CreateCommand();
+                deleteCmd.CommandText = "DELETE FROM Customers WHERE Id = @id;";
+                deleteCmd.Parameters.AddWithValue("@id", id);
 
+                //ExecuteNonQuery returnerar antalet rader som påverkades.
+                int rowsAffected = deleteCmd.ExecuteNonQuery();
 
+                //Returnerar true om minst en rad raderades.
+                return rowsAffected > 0;
 
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Kunde inte radera kunden från databasen:");
+                Console.WriteLine(ex.Message);
+
+                return false;
+            }
+        }
+
+        //Söker i databasen efter kunder vars namn, e-post eller stad innehåller söktermen.
+        public List<Customer> SearchCustomers(string term)
+        {
+            var customers = new List<Customer>();
+
+            try
+            {
+                using var connection = new SqliteConnection(ConnectionString);
+                connection.Open();
+
+                var searchCmd = connection.CreateCommand();
+                searchCmd.CommandText = @"SELECT * FROM Customers 
+                    WHERE Name LIKE @term OR Email LIKE @term OR City LIKE @term;";
+                //% tillåter träffar i mitten av orden.
+                searchCmd.Parameters.AddWithValue("@term", "%" + term + "%");
+
+                using var reader = searchCmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    //Lägg till varje hittad kund i listan.
+                    customers.Add(ReadCustomer(reader));
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ett fel uppstod vid sökningen:");
+                Console.WriteLine(ex.Message);
+            }
+
+            return customers;
+        }
+
+        //Sorterar kunder i databasen baserat på namn, stad eller datum.
+        public List<Customer> SortCustomers(string sortBy)
+        {
+            //Lista som kommer innehålla alla kunder i vald ordning.
+            var customers = new List<Customer>();
+
+            //Tillåtna kolumner att sortera efter
+            var validColumns = new List<string> { "Name", "City", "CreatedAt" };
+
+            //Kontrollera att sortBy är giltig innan vi bygger SQL.
+            if (!validColumns.Contains(sortBy))
+            {
+                Console.WriteLine("Ogiltigt sorteringsval, sorterar i standardordning (Id).");
+
+                sortBy = "Id"; //Standardkolumn om valet är fel
+            }
+
+            try
+            {
+                using var connection = new SqliteConnection(ConnectionString);
+                connection.Open();
+
+                var sortCmd = connection.CreateCommand();
+                //Använd redan validerad sortBy här
+                sortCmd.CommandText = $"SELECT * FROM Customers ORDER BY {sortBy};";
+
+                using var reader = sortCmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    //Lägg till varje kund i listan
+                    customers.Add(ReadCustomer(reader));
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ett fel uppstod vid sorteringen:");
+                Console.WriteLine(ex.Message);
+            }
+
+            return customers;
+        }
 
 
         //Läser rader från databasen som hämtats av metoderna ovan och skapar ett customer-objekt.
