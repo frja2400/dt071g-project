@@ -32,7 +32,6 @@ namespace CustomerRegister
             }
             catch (Exception ex)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Kunde inte hämta kunder från databasen:");
                 Console.WriteLine(ex.Message);
                 Console.ResetColor();
@@ -41,6 +40,87 @@ namespace CustomerRegister
             return customers;
         }
 
+        //Hämtar kunder baserat på ID om den finns.
+        public Customer? GetCustomerById(int id)
+        {
+            try
+            {
+                using var connection = new SqliteConnection(ConnectionString);
+                connection.Open();
+
+                var selectCmd = connection.CreateCommand();
+                selectCmd.CommandText = "SELECT * FROM Customers WHERE Id = @id;";
+                //Parametrisera för säkerhet.
+                selectCmd.Parameters.AddWithValue("@id", id);
+
+                using var reader = selectCmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    return ReadCustomer(reader);
+                }
+                else
+                {
+                    return null; //Ingen kund hittades
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Kunde inte hämta kunden från databasen:");
+                Console.WriteLine(ex.Message);
+                Console.ResetColor();
+
+                return null;
+            }
+        }
+
+        //Adderar kund till databasen, returnerar customer-objekt om det lyckas, annars null.
+        public Customer? AddCustomer(string name, string email, string city)
+        {
+            try
+            {
+                using var connection = new SqliteConnection(ConnectionString);
+                connection.Open();
+
+                var insertCmd = connection.CreateCommand();
+                insertCmd.CommandText = @"
+            INSERT INTO Customers (Name, Email, City, CreatedAt)
+            VALUES (@name, @email, @city, @createdAt);";
+
+                //Skapa CreatedAt-värde för när kunden läggs till.
+                var createdAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+                insertCmd.Parameters.AddWithValue("@name", name);
+                insertCmd.Parameters.AddWithValue("@email", email);
+                //Om city är tomt sickas DBNull till databsen, annars skickas värdet.
+                insertCmd.Parameters.AddWithValue("@city", string.IsNullOrEmpty(city) ? DBNull.Value : (object)city);
+                insertCmd.Parameters.AddWithValue("@createdAt", createdAt);
+
+                insertCmd.ExecuteNonQuery();
+
+                //Hämta den rad som just lagts till
+                var selectCmd = connection.CreateCommand();
+                selectCmd.CommandText = "SELECT * FROM Customers WHERE Id = last_insert_rowid();";
+
+                using var reader = selectCmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    //Använd ReadCustomer för att skapa Customer-objektet
+                    return ReadCustomer(reader);
+                }
+                else
+                {
+                    return null; //Något gick fel
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Kunde inte addera kunden till databasen:");
+                Console.WriteLine(ex.Message);
+                Console.ResetColor();
+
+                return null;
+            }
+        }
 
 
 
@@ -48,7 +128,7 @@ namespace CustomerRegister
 
 
 
-        //Skapar ett Customer-objekt från en rad i databasen som hämtas från metoderna.
+        //Läser rader från databasen som hämtats av metoderna ovan och skapar ett customer-objekt.
         private Customer ReadCustomer(SqliteDataReader reader)
         {
             return new Customer
