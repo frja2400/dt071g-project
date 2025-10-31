@@ -1,5 +1,4 @@
 using System;
-using System.Data.Common;
 
 
 namespace CustomerRegister
@@ -42,8 +41,8 @@ namespace CustomerRegister
             Console.WriteLine("KUNDREGISTER");
             Console.WriteLine("1. Visa alla kunder");
             Console.WriteLine("2. Lägg till ny kund");
-            Console.WriteLine("3. Redigera kund");
-            Console.WriteLine("4. Radera kund");
+            Console.WriteLine("3. Radera kund");
+            Console.WriteLine("4. Redigera kund");
             Console.WriteLine("5. Sök kund");
             Console.WriteLine("6. Sortera kunder");
             Console.WriteLine("7. Avsluta programmet");
@@ -222,6 +221,87 @@ namespace CustomerRegister
             {
                 Console.WriteLine("Kunde inte uppdatera kunden. Tryck på valfri tangent för att återgå.");
             }
+            Console.ReadKey();
+        }
+
+        public void SearchCustomer()
+        {
+            Console.Clear();
+            Console.Write("Sök på namn, epost eller stad:");
+            string? term = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(term))
+            {
+                Console.WriteLine("Sökfält får ej vara tomt. Tryck på valfri tangent för att återgå.");
+                Console.ReadKey();
+                return;
+            }
+
+            var results = _repository.SearchCustomers(term);
+
+            if (results.Count == 0)
+            {
+                Console.WriteLine("Ingen kund hittades. Tryck på valfri tangent för att återgå.")
+                Console.ReadKey();
+                return;
+            }
+
+            foreach (var c in results)
+            {
+                Console.WriteLine($"{c.Id}. {c.Name} - {c.Email} - {c.City} - {c.CreatedAt:yyyy-MM-dd}");
+            }
+            Console.WriteLine("\nTryck på valfri tangent för att återgå till menyn.");
+            Console.ReadKey();
+        }
+
+        public void SortCustomer()
+        {
+            Console.Clear();
+            Console.WriteLine("SORTERA KUNDER");
+            Console.WriteLine("1. Sortera efter namn");
+            Console.WriteLine("2. Sortera efter stad");
+            Console.WriteLine("3. Sortera efter datum (skapad)");
+
+            Console.Write("\nVälj ett alternativ: ");
+            string? choice = Console.ReadLine();
+
+            //Variabel som lagrar fält som ska sorteras på.
+            string sortBy = "";
+
+            switch (choice)
+            {
+                case "1":
+                    sortBy = "Name";
+                    break;
+                case "2":
+                    sortBy = "City";
+                    break;
+                case "3":
+                    sortBy = "CreatedAt";
+                    break;
+                default:
+                    Console.WriteLine("Ogiltigt val. Tryck på valfri tangent för att återgå.");
+                    Console.ReadKey();
+                    return;
+            }
+
+            //Hämtar sorterade kunder från databasen via repositoryns metod SortCustomers().
+            var sorted = _repository.SortCustomers(sortBy);
+
+            if (sorted.Count == 0)
+            {
+                Console.WriteLine("Inga kunder i databasen. Tryck på valfri tangent för att återgå.");
+                Console.ReadKey();
+                return;
+            }
+
+            Console.WriteLine("\nSorterad kundlista:\n");
+            foreach (var c in sorted)
+            {
+                Console.WriteLine($"{c.Id}. {c.Name} - {c.Email} - {c.City} - {c.CreatedAt:yyyy-MM-dd}");
+            }
+
+            Console.WriteLine("\nTryck på valfri tangent för att återgå till menyn.");
             Console.ReadKey();
         }
     }
