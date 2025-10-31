@@ -24,13 +24,13 @@ namespace CustomerRegister
                 //Skapar ett SQL-kommandoobjekt som skapar tabellen om den inte redan finns.
                 var tableCmd = connection.CreateCommand();
                 tableCmd.CommandText = @"
-            CREATE TABLE IF NOT EXISTS Customers (
-                Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                Name TEXT NOT NULL,
-                Email TEXT NOT NULL,
-                City TEXT,
-                CreatedAt TEXT NOT NULL
-            );";
+                    CREATE TABLE IF NOT EXISTS Customers (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Name TEXT NOT NULL,
+                    Email TEXT NOT NULL,
+                    City TEXT,
+                    CreatedAt TEXT NOT NULL
+                    );";
                 //Kör kommandot på databasen
                 tableCmd.ExecuteNonQuery();
 
