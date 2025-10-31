@@ -57,7 +57,7 @@ namespace CustomerRegister
             //Kontrollerar att det finns registrerade kunder.
             if (customers.Count == 0)
             {
-                Console.WriteLine("Inga kunder är registrerade. Tryck på valfri tangent för att återgå till meny.");
+                Console.WriteLine("Inga kunder är registrerade. Tryck på valfri tangent för att återgå till menyn.");
                 Console.ReadKey();
                 return;
             }
@@ -76,24 +76,32 @@ namespace CustomerRegister
             Console.Clear();
             Console.WriteLine("LÄGG TILL NY KUND\n");
 
-            //Läs in namn och kontrollera att det inte är tomt.
-            Console.Write("Namn: ");
-            string? name = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(name))
+            string name;
+            while (true)
             {
-                Console.WriteLine("Namn får inte vara tomt. Tryck på valfri tangent för att återgå.");
+                Console.Write("Namn: ");
+                //Vid null så sätts name till tom sträng istället så att name alltid är en giltig sträng.
+                name = Console.ReadLine() ?? "";
+
+                //Om namn inte är tomt - bryt loopen.
+                if (!string.IsNullOrWhiteSpace(name)) break;
+
+                //Annars meddela att det inte får vara tomt.
+                Console.WriteLine("Namn får inte vara tomt. Tryck på valfri tangent för att försöka igen.\n");
                 Console.ReadKey();
-                return;
             }
 
-            //Läs in email och kontrollera att det inte är tomt och är giltigt.
-            Console.Write("Email: ");
-            string? email = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
+            string email;
+            while (true)
             {
-                Console.WriteLine("Ogiltig e-postadress. Tryck på valfri tangent för att återgå.");
+                Console.Write("Epost: ");
+                email = Console.ReadLine() ?? "";
+
+                //Om email inte är tomt och innehåller @ - bryt loopen.
+                if (!string.IsNullOrWhiteSpace(email) && email.Contains("@")) break;
+
+                Console.WriteLine("Ogiltig e-postadress. Tryck på valfri tangent för att försöka igen.\n");
                 Console.ReadKey();
-                return;
             }
 
             Console.Write("Stad (valfritt): ");
@@ -110,7 +118,7 @@ namespace CustomerRegister
             }
             else
             {
-                Console.WriteLine("\nKunde inte lägga till kunden. Tryck på valfri tangent för att återgå.");
+                Console.WriteLine("\nKunde inte lägga till kunden. Tryck på valfri tangent för att återgå till menyn.");
             }
 
             Console.WriteLine("\nTryck på valfri tangent för att återgå till menyn.");
@@ -126,7 +134,7 @@ namespace CustomerRegister
             //Konverterar inmatning till heltal men om det inte lyckas så skriv ut nedan:
             if (!int.TryParse(input, out int id))
             {
-                Console.WriteLine("Ogiltigt ID. Tryck på valfri tangent för att återgå.");
+                Console.WriteLine("Ogiltigt ID. Tryck på valfri tangent för att återgå till menyn.");
                 Console.ReadKey();
                 return;
             }
@@ -135,7 +143,7 @@ namespace CustomerRegister
             var customer = _repository.GetCustomerById(id);
             if (customer == null)
             {
-                Console.WriteLine("Ingen kund med det ID:t hittades. Tryck på valfri tangent för att återgå.");
+                Console.WriteLine("Ingen kund med det ID:t hittades. Tryck på valfri tangent för att återgå till menyn.");
                 Console.ReadKey();
                 return;
             }
@@ -158,7 +166,7 @@ namespace CustomerRegister
             }
             else
             {
-                Console.WriteLine("Kunde inte radera kunden. Tryck på valfri tangent för att återgå.");
+                Console.WriteLine("Kunde inte radera kunden. Tryck på valfri tangent för att återgå till menyn.");
             }
             Console.ReadKey();
         }
@@ -171,35 +179,46 @@ namespace CustomerRegister
 
             if (!int.TryParse(input, out int id))
             {
-                Console.WriteLine("Ogiltigt ID. Tryck på valfri tangent för att återgå.");
+                Console.WriteLine("Ogiltigt ID. Tryck på valfri tangent för att återgå till menyn.");
                 Console.ReadKey();
                 return;
             }
 
             var customer = _repository.GetCustomerById(id);
+
+            //Visa nuvarande information om kunden.
+            Console.WriteLine($"{customer.Id}. {customer.Name} - {customer.Email} - {customer.City} - {customer.CreatedAt:yyyy-MM-dd}");
+            Console.WriteLine("\nFyll i ny information:\n");
+
             if (customer == null)
             {
-                Console.WriteLine("Ingen kund med det ID:t hittades. Tryck på valfri tangent för att återgå.");
+                Console.WriteLine("Ingen kund med det ID:t hittades. Tryck på valfri tangent för att återgå till menyn.");
                 Console.ReadKey();
                 return;
             }
 
-            Console.Write("Namn: ");
-            string? name = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(name))
+            string name;
+            while (true)
             {
-                Console.WriteLine("Namn får inte vara tomt. Tryck på valfri tangent för att återgå.");
+                Console.Write("Namn: ");
+                name = Console.ReadLine() ?? "";
+
+                if (!string.IsNullOrWhiteSpace(name)) break;
+
+                Console.WriteLine("Namn får inte vara tomt. Tryck på valfri tangent för att försöka igen.\n");
                 Console.ReadKey();
-                return;
             }
 
-            Console.Write("Email: ");
-            string? email = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
+            string email;
+            while (true)
             {
-                Console.WriteLine("Ogiltig e-postadress. Tryck på valfri tangent för att återgå.");
+                Console.Write("Epost: ");
+                email = Console.ReadLine() ?? "";
+
+                if (!string.IsNullOrWhiteSpace(email) && email.Contains("@")) break;
+
+                Console.WriteLine("Ogiltig e-postadress. Tryck på valfri tangent för att försöka igen.\n");
                 Console.ReadKey();
-                return;
             }
 
             Console.Write("Stad (valfritt): ");
@@ -215,11 +234,11 @@ namespace CustomerRegister
 
             if (success)
             {
-                Console.WriteLine("Kunden uppdaterades.");
+                Console.WriteLine("Kunden uppdaterades. Tryck på valfri tangent för att återgå till menyn.");
             }
             else
             {
-                Console.WriteLine("Kunde inte uppdatera kunden. Tryck på valfri tangent för att återgå.");
+                Console.WriteLine("Kunde inte uppdatera kunden. Tryck på valfri tangent för att återgå till menyn.");
             }
             Console.ReadKey();
         }
@@ -227,12 +246,12 @@ namespace CustomerRegister
         public void SearchCustomer()
         {
             Console.Clear();
-            Console.Write("Sök på namn, epost eller stad:");
+            Console.Write("Sök på namn, epost eller stad: ");
             string? term = Console.ReadLine();
 
             if (string.IsNullOrWhiteSpace(term))
             {
-                Console.WriteLine("Sökfält får ej vara tomt. Tryck på valfri tangent för att återgå.");
+                Console.WriteLine("Sökfält får ej vara tomt. Tryck på valfri tangent för att återgå till menyn.");
                 Console.ReadKey();
                 return;
             }
@@ -241,7 +260,7 @@ namespace CustomerRegister
 
             if (results.Count == 0)
             {
-                Console.WriteLine("Ingen kund hittades. Tryck på valfri tangent för att återgå.")
+                Console.WriteLine("Ingen kund hittades. Tryck på valfri tangent för att återgå till menyn.");
                 Console.ReadKey();
                 return;
             }
@@ -280,7 +299,7 @@ namespace CustomerRegister
                     sortBy = "CreatedAt";
                     break;
                 default:
-                    Console.WriteLine("Ogiltigt val. Tryck på valfri tangent för att återgå.");
+                    Console.WriteLine("Ogiltigt val. Tryck på valfri tangent för att återgå till menyn.");
                     Console.ReadKey();
                     return;
             }
@@ -290,7 +309,7 @@ namespace CustomerRegister
 
             if (sorted.Count == 0)
             {
-                Console.WriteLine("Inga kunder i databasen. Tryck på valfri tangent för att återgå.");
+                Console.WriteLine("Inga kunder i databasen. Tryck på valfri tangent för att återgå till menyn.");
                 Console.ReadKey();
                 return;
             }
