@@ -89,7 +89,7 @@ namespace CustomerRegister
 
                 insertCmd.Parameters.AddWithValue("@name", name);
                 insertCmd.Parameters.AddWithValue("@email", email);
-                //Om city är tomt sickas DBNull till databsen, annars skickas värdet.
+                //Om city är tomt skickas DBNull till databasen, annars skickas värdet.
                 insertCmd.Parameters.AddWithValue("@city", string.IsNullOrEmpty(city) ? DBNull.Value : (object)city);
                 insertCmd.Parameters.AddWithValue("@createdAt", createdAt);
 
@@ -143,6 +143,40 @@ namespace CustomerRegister
                 Console.WriteLine("Kunde inte radera kunden från databasen:");
                 Console.WriteLine(ex.Message);
 
+                return false;
+            }
+        }
+
+        //Uppdaterar en kund i databasen med parametern Customer-objekt.
+        //Använder värdena i det objektet för att uppdatera motsvarande rad i databasen.
+        public bool UpdateCustomer(Customer customer)
+        {
+            try
+            {
+                using var connection = new SqliteConnection(ConnectionString);
+                connection.Open();
+
+                var updateCmd = connection.CreateCommand();
+                updateCmd.CommandText = @"UPDATE Customers
+                    SET Name = @name,
+                    Email = @email,
+                    City = @city
+                    WHERE Id = @id;";
+
+                updateCmd.Parameters.AddWithValue("@name", customer.Name);
+                updateCmd.Parameters.AddWithValue("@email", customer.Email);
+                updateCmd.Parameters.AddWithValue("@city", string.IsNullOrEmpty(customer.City) ? DBNull.Value : (object)customer.City);
+                updateCmd.Parameters.AddWithValue("@id", customer.Id);
+
+                int rowsAffected = updateCmd.ExecuteNonQuery();
+
+                //Returnerar true om minst en rad uppdaterades.
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Kunde inte uppdatera kunden i databasen:");
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }

@@ -6,11 +6,14 @@ namespace CustomerRegister
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Skapar databas och tabell (om de inte finns).");
-
+            //Skapa databas och tabell om den inte redan finns.
             var db = new CustomerDatabase();
 
-            Console.WriteLine("Databasen är klar!.");
+            //Skapa instans av MenuController.
+            var menu = new MenuController();
+
+            //Starta menyn genom att köra min metod Run på den nya instansen.
+            menu.Run();
         }
     }
 }
