@@ -14,7 +14,7 @@ namespace CustomerRegister
         {
             while (true)
             {
-                Console.Clear();
+                UIHelper.PrintHeader("Kundregister");
                 ShowMenu();
                 Console.Write("\nVälj ett alternativ: ");
                 string? choice = Console.ReadLine();
@@ -29,16 +29,15 @@ namespace CustomerRegister
                     case "6": SortCustomer(); break;
                     case "7": return;
                     default:
-                        Console.WriteLine("Ogiltigt val, tryck på valfri tangent för att återgå till menyn.");
-                        Console.ReadKey();
+                        UIHelper.PrintError("Ogiltigt val.");
+                        UIHelper.WaitForKey();
                         break;
                 }
             }
         }
 
-        private void ShowMenu()
+        private static void ShowMenu()
         {
-            Console.WriteLine("KUNDREGISTER");
             Console.WriteLine("1. Visa alla kunder");
             Console.WriteLine("2. Lägg till ny kund");
             Console.WriteLine("3. Radera kund");
@@ -57,24 +56,20 @@ namespace CustomerRegister
             //Kontrollerar att det finns registrerade kunder.
             if (customers.Count == 0)
             {
-                Console.WriteLine("Inga kunder är registrerade. Tryck på valfri tangent för att återgå till menyn.");
-                Console.ReadKey();
+                UIHelper.PrintError("Inga kunder är registrerade.");
+                UIHelper.WaitForKey();
                 return;
             }
 
-            foreach (var c in customers)
-            {
-                Console.WriteLine($"{c.Id}. {c.Name} - {c.Email} - {c.City} - {c.CreatedAt:yyyy-MM-dd}");
-            }
-
-            Console.WriteLine("\nTryck på valfri tangent för att återgå till menyn.");
-            Console.ReadKey();
+            //Skriver ut tabell med design enligt metod i UIHelper.
+            UIHelper.PrintCustomerTable(customers);
+            UIHelper.WaitForKey();
         }
 
         private void AddCustomer()
         {
             Console.Clear();
-            Console.WriteLine("LÄGG TILL NY KUND\n");
+            UIHelper.PrintSubHeader("Lägg till ny kund");
 
             string name;
             while (true)
@@ -87,8 +82,8 @@ namespace CustomerRegister
                 if (!string.IsNullOrWhiteSpace(name)) break;
 
                 //Annars meddela att det inte får vara tomt.
-                Console.WriteLine("Namn får inte vara tomt. Tryck på valfri tangent för att försöka igen.\n");
-                Console.ReadKey();
+                UIHelper.PrintError("Namn får inte vara tomt.");
+                UIHelper.TryAgain();
             }
 
             string email;
@@ -100,8 +95,8 @@ namespace CustomerRegister
                 //Om email inte är tomt och innehåller @ - bryt loopen.
                 if (!string.IsNullOrWhiteSpace(email) && email.Contains("@")) break;
 
-                Console.WriteLine("Ogiltig e-postadress. Tryck på valfri tangent för att försöka igen.\n");
-                Console.ReadKey();
+                UIHelper.PrintError("Ogiltig e-postadress.");
+                UIHelper.TryAgain();
             }
 
             Console.Write("Stad (valfritt): ");
@@ -114,28 +109,27 @@ namespace CustomerRegister
             //Kontrollera om kund är tillagd.
             if (newCustomer != null)
             {
-                Console.WriteLine($"\nKunden '{newCustomer.Name}' lades till med ID {newCustomer.Id}.");
+                UIHelper.PrintSuccess($"Kunden '{newCustomer.Name}' lades till med ID {newCustomer.Id}.");
             }
             else
             {
-                Console.WriteLine("\nKunde inte lägga till kunden. Tryck på valfri tangent för att återgå till menyn.");
+                UIHelper.PrintError("Kunde inte lägga till kunden.");
             }
-
-            Console.WriteLine("\nTryck på valfri tangent för att återgå till menyn.");
-            Console.ReadKey();
+            UIHelper.WaitForKey();
         }
 
         private void DeleteCustomer()
         {
             Console.Clear();
+            UIHelper.PrintSubHeader("Radera kund");
             Console.Write("Skriv in ID på kunden du vill radera: ");
             string? input = Console.ReadLine();
 
             //Konverterar inmatning till heltal men om det inte lyckas så skriv ut nedan:
             if (!int.TryParse(input, out int id))
             {
-                Console.WriteLine("Ogiltigt ID. Tryck på valfri tangent för att återgå till menyn.");
-                Console.ReadKey();
+                UIHelper.PrintError("Ogiltigt ID.");
+                UIHelper.WaitForKey();
                 return;
             }
 
@@ -143,8 +137,8 @@ namespace CustomerRegister
             var customer = _repository.GetCustomerById(id);
             if (customer == null)
             {
-                Console.WriteLine("Ingen kund med det ID:t hittades. Tryck på valfri tangent för att återgå till menyn.");
-                Console.ReadKey();
+                UIHelper.PrintError("Ingen kund med det ID:t hittades.");
+                UIHelper.WaitForKey();
                 return;
             }
 
@@ -153,8 +147,8 @@ namespace CustomerRegister
             //Om användaren inte svarar J så avbryts raderingen.
             if (confirm?.ToUpper() != "J")
             {
-                Console.WriteLine("Radering avbruten.");
-                Console.ReadKey();
+                UIHelper.PrintError("Radering avbruten.");
+                UIHelper.WaitForKey();
                 return;
             }
 
@@ -162,40 +156,41 @@ namespace CustomerRegister
             bool success = _repository.DeleteCustomer(id);
             if (success)
             {
-                Console.WriteLine("Kunden raderades.");
+                UIHelper.PrintSuccess("Kunden raderades.");
             }
             else
             {
-                Console.WriteLine("Kunde inte radera kunden. Tryck på valfri tangent för att återgå till menyn.");
+                UIHelper.PrintError("Kunde inte radera kunden.");
             }
-            Console.ReadKey();
+            UIHelper.WaitForKey();
         }
 
         private void EditCustomer()
         {
             Console.Clear();
+            UIHelper.PrintSubHeader("Redigera kund");
             Console.Write("Skriv in ID på kunden du vill redigera: ");
             string? input = Console.ReadLine();
 
             if (!int.TryParse(input, out int id))
             {
-                Console.WriteLine("Ogiltigt ID. Tryck på valfri tangent för att återgå till menyn.");
-                Console.ReadKey();
+                UIHelper.PrintError("Ogiltigt ID.");
+                UIHelper.WaitForKey();
                 return;
             }
 
             var customer = _repository.GetCustomerById(id);
 
-            //Visa nuvarande information om kunden.
-            Console.WriteLine($"{customer.Id}. {customer.Name} - {customer.Email} - {customer.City} - {customer.CreatedAt:yyyy-MM-dd}");
-            Console.WriteLine("\nFyll i ny information:\n");
-
             if (customer == null)
             {
-                Console.WriteLine("Ingen kund med det ID:t hittades. Tryck på valfri tangent för att återgå till menyn.");
-                Console.ReadKey();
+                UIHelper.PrintError("Ingen kund med det ID:t hittades.");
+                UIHelper.WaitForKey();
                 return;
             }
+
+            //Visa nuvarande information om kunden.
+            UIHelper.PrintCustomerTable([customer]);
+            Console.WriteLine("FYLL I NY INFORMATION\n");
 
             string name;
             while (true)
@@ -205,8 +200,8 @@ namespace CustomerRegister
 
                 if (!string.IsNullOrWhiteSpace(name)) break;
 
-                Console.WriteLine("Namn får inte vara tomt. Tryck på valfri tangent för att försöka igen.\n");
-                Console.ReadKey();
+                UIHelper.PrintError("Namn får inte vara tomt.");
+                UIHelper.TryAgain();
             }
 
             string email;
@@ -217,8 +212,8 @@ namespace CustomerRegister
 
                 if (!string.IsNullOrWhiteSpace(email) && email.Contains("@")) break;
 
-                Console.WriteLine("Ogiltig e-postadress. Tryck på valfri tangent för att försöka igen.\n");
-                Console.ReadKey();
+                UIHelper.PrintError("Ogiltig e-postadress.");
+                UIHelper.TryAgain();
             }
 
             Console.Write("Stad (valfritt): ");
@@ -234,49 +229,55 @@ namespace CustomerRegister
 
             if (success)
             {
-                Console.WriteLine("Kunden uppdaterades. Tryck på valfri tangent för att återgå till menyn.");
+                UIHelper.PrintSuccess("Kunden uppdaterades.");
             }
             else
             {
-                Console.WriteLine("Kunde inte uppdatera kunden. Tryck på valfri tangent för att återgå till menyn.");
+                UIHelper.PrintError("Kunde inte uppdatera kunden.");
             }
-            Console.ReadKey();
+            UIHelper.WaitForKey();
         }
 
         public void SearchCustomer()
         {
             Console.Clear();
-            Console.Write("Sök på namn, epost eller stad: ");
-            string? term = Console.ReadLine();
+            UIHelper.PrintSubHeader("Sök kund");
 
-            if (string.IsNullOrWhiteSpace(term))
+            //Loopar tills användaren anger ett giltigt sökord
+            string term;
+            while (true)
             {
-                Console.WriteLine("Sökfält får ej vara tomt. Tryck på valfri tangent för att återgå till menyn.");
-                Console.ReadKey();
-                return;
+                Console.Write("Sök på namn, epost eller stad: ");
+                term = Console.ReadLine() ?? "";
+
+                //Om fältet inte är tomt - bryt loopen
+                if (!string.IsNullOrWhiteSpace(term))
+                    break;
+
+                //Annars meddela att det inte får vara tomt
+                UIHelper.PrintError("Sökfält får ej vara tomt.");
+                UIHelper.TryAgain();
             }
 
             var results = _repository.SearchCustomers(term);
 
             if (results.Count == 0)
             {
-                Console.WriteLine("Ingen kund hittades. Tryck på valfri tangent för att återgå till menyn.");
-                Console.ReadKey();
+                UIHelper.PrintError("Ingen kund hittades.");
+                UIHelper.WaitForKey();
                 return;
             }
 
-            foreach (var c in results)
-            {
-                Console.WriteLine($"{c.Id}. {c.Name} - {c.Email} - {c.City} - {c.CreatedAt:yyyy-MM-dd}");
-            }
-            Console.WriteLine("\nTryck på valfri tangent för att återgå till menyn.");
-            Console.ReadKey();
+            Console.Clear();
+            UIHelper.PrintSubHeader("Sökresultat");
+            UIHelper.PrintCustomerTable(results);
+            UIHelper.WaitForKey();
         }
 
         public void SortCustomer()
         {
             Console.Clear();
-            Console.WriteLine("SORTERA KUNDER");
+            UIHelper.PrintSubHeader("Sortera kunder");
             Console.WriteLine("1. Sortera efter namn");
             Console.WriteLine("2. Sortera efter stad");
             Console.WriteLine("3. Sortera efter datum (skapad)");
@@ -299,8 +300,8 @@ namespace CustomerRegister
                     sortBy = "CreatedAt";
                     break;
                 default:
-                    Console.WriteLine("Ogiltigt val. Tryck på valfri tangent för att återgå till menyn.");
-                    Console.ReadKey();
+                    UIHelper.PrintError("Ogiltigt val.");
+                    UIHelper.WaitForKey();
                     return;
             }
 
@@ -309,19 +310,15 @@ namespace CustomerRegister
 
             if (sorted.Count == 0)
             {
-                Console.WriteLine("Inga kunder i databasen. Tryck på valfri tangent för att återgå till menyn.");
-                Console.ReadKey();
+                UIHelper.PrintError("Inga kunder i databasen.");
+                UIHelper.WaitForKey();
                 return;
             }
 
-            Console.WriteLine("\nSorterad kundlista:\n");
-            foreach (var c in sorted)
-            {
-                Console.WriteLine($"{c.Id}. {c.Name} - {c.Email} - {c.City} - {c.CreatedAt:yyyy-MM-dd}");
-            }
-
-            Console.WriteLine("\nTryck på valfri tangent för att återgå till menyn.");
-            Console.ReadKey();
+            Console.Clear();
+            UIHelper.PrintSubHeader("Sorterad kundlista");
+            UIHelper.PrintCustomerTable(sorted);
+            UIHelper.WaitForKey();
         }
     }
 }
