@@ -1,0 +1,112 @@
+<mxfile host="65bd71144e">
+    <diagram id="TTsNrQ6TEc6xc2crZbOC" name="Page-1">
+        <mxGraphModel dx="5503" dy="3849" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="&lt;div&gt;&lt;font&gt;=======================================&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; KUNDREGISTER&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;=======================================&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;1. Visa alla kunder&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;2. Lägg till ny kund&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;3. Radera kund&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;4. Redigera kund&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;5. Sök kund&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;6. Sortera kunder&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;7. Avsluta programmet&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;Välj ett alternativ:&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="-1360" y="-1340" width="320" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;ID&amp;nbsp; &amp;nbsp;Namn&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Email&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Stad&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Skapad&lt;/div&gt;&lt;div&gt;--------------------------------------------------------------------------&lt;/div&gt;&lt;div&gt;1&amp;nbsp; &amp;nbsp; Frida&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; frida@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Malmö&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;2025-10-31&lt;/div&gt;&lt;div&gt;2&amp;nbsp; &amp;nbsp; Michele&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; michele@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Malmö&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;2025-10-31&lt;/div&gt;&lt;div&gt;4&amp;nbsp; &amp;nbsp; Lovisa&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;lovisa@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Göteborg&amp;nbsp; &amp;nbsp; &amp;nbsp; 2025-10-31&lt;/div&gt;&lt;div&gt;8&amp;nbsp; &amp;nbsp; Lisa&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;lisa@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Örebro&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 2025-11-01&lt;/div&gt;&lt;div&gt;9&amp;nbsp; &amp;nbsp; Agnes&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; agnes@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Örebro&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 2025-11-01&lt;/div&gt;&lt;div&gt;11&amp;nbsp; &amp;nbsp;Fredric&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; fredric@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Örebro&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 2025-11-01&lt;/div&gt;&lt;div&gt;14&amp;nbsp; &amp;nbsp;Karl&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;karl@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Västerås&amp;nbsp; &amp;nbsp; &amp;nbsp; 2025-11-01&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Tryck på valfri tangent för att återgå till menyn.&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="-2300" y="-920" width="370" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4" target="2">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-1730" y="-630" as="sourcePoint"/>
+                        <mxPoint x="-2230" y="-1050" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="&lt;div&gt;LÄGG TILL NY KUND&lt;/div&gt;&lt;div&gt;--------------------------&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Namn:&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Namn får inte vara tomt.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Tryck på valfri tangent för att prova igen.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Namn: Oscar&lt;/div&gt;&lt;div&gt;Epost: oscarsmail&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Ogiltig e-postadress.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Tryck på valfri tangent för att prova igen.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Epost: oscar@test.se&lt;/div&gt;&lt;div&gt;Stad (valfritt): Gävle&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Kunden &#39;Oscar&#39; lades till med ID 17.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Tryck på valfri tangent för att återgå till menyn.&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="-1900" y="-920" width="320" height="350" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="7" target="2">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-1730" y="-780" as="sourcePoint"/>
+                        <mxPoint x="-1800" y="-990" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9" value="&lt;div&gt;RADERA KUND&lt;/div&gt;&lt;div&gt;--------------------------&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Skriv in ID på kunden du vill radera: 17&lt;/div&gt;&lt;div&gt;Är du säker på att du vill radera kunden &#39;Oscar&#39;? (J/N): j&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Kunden raderades.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Tryck på valfri tangent för att återgå till menyn.&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="-1550" y="-920" width="320" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;div&gt;RADERA KUND&lt;/div&gt;&lt;div&gt;--------------------------&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Skriv in ID på kunden du vill radera:&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Ogiltigt ID.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Tryck på valfri tangent för att återgå till menyn.&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="-1550" y="-700" width="320" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&lt;div&gt;RADERA KUND&lt;/div&gt;&lt;div&gt;--------------------------&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Skriv in ID på kunden du vill radera: 45&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Ingen kund med det ID:t hittades.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Tryck på valfri tangent för att återgå till menyn.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="-1550" y="-480" width="320" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="" style="endArrow=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="10" target="9">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-1700" y="-630" as="sourcePoint"/>
+                        <mxPoint x="-1650" y="-680" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" value="" style="endArrow=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="11" target="10">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-1700" y="-630" as="sourcePoint"/>
+                        <mxPoint x="-1650" y="-680" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="14" value="" style="endArrow=classic;startArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="2" target="9">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-1390" y="-1010" as="sourcePoint"/>
+                        <mxPoint x="-1650" y="-680" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="&lt;div&gt;REDIGERA KUND&lt;/div&gt;&lt;div&gt;--------------------------&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Skriv in ID på kunden du vill redigera: 16&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;ID&amp;nbsp; &amp;nbsp;Namn&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Email&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Stad&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Skapad&lt;/div&gt;&lt;div&gt;--------------------------------------------------------------------------&lt;/div&gt;&lt;div&gt;16&amp;nbsp; &amp;nbsp;Karin&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; karin@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Uppsala&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;2025-11-02&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;FYLL I NY INFORMATION&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Namn: Sofia&lt;/div&gt;&lt;div&gt;Epost: sofia@test.se&lt;/div&gt;&lt;div&gt;Stad (valfritt): Uppsala&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Kunden uppdaterades.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Tryck på valfri tangent för att återgå till menyn.&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="-1190" y="-920" width="370" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="" style="endArrow=classic;startArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="2" target="15">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-1020" y="-1010" as="sourcePoint"/>
+                        <mxPoint x="-1120" y="-540" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="17" value="&lt;div&gt;SÖK KUND&lt;/div&gt;&lt;div&gt;--------------------------&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Sök på namn, epost eller stad:&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Sökfält får ej vara tomt.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Tryck på valfri tangent för att prova igen.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Sök på namn, epost eller stad: Peter&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Ingen kund hittades.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Tryck på valfri tangent för att återgå till menyn.&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="-780" y="-520" width="370" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="SÖK KUND&#xa;--------------------------&#xa;&#xa;&#xa;Sök på namn, epost eller stad: Örebro" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="-780" y="-920" width="370" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="&lt;div&gt;&lt;font&gt;SÖKRESULTAT&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;--------------------------&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;ID&amp;nbsp; &amp;nbsp;Namn&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Email&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Stad&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Skapad&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;--------------------------------------------------------------------------&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;8&amp;nbsp; &amp;nbsp; Lisa&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;lisa@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Örebro&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 2025-11-01&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;9&amp;nbsp; &amp;nbsp; Agnes&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; agnes@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Örebro&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 2025-11-01&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;11&amp;nbsp; &amp;nbsp;Fredric&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; fredric@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Örebro&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 2025-11-01&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;Tryck på valfri tangent för att återgå till menyn.&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="-780" y="-790" width="370" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="18" target="20">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-710" y="-630" as="sourcePoint"/>
+                        <mxPoint x="-660" y="-680" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" value="" style="endArrow=none;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="17" target="20">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-610" y="-490" as="sourcePoint"/>
+                        <mxPoint x="-560" y="-540" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="23" value="" style="endArrow=classic;startArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="18" target="2">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-610" y="-630" as="sourcePoint"/>
+                        <mxPoint x="-630" y="-1040" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="24" value="&lt;div&gt;&lt;font&gt;SORTERA KUNDER&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;--------------------------&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;1. Sortera efter namn&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;2. Sortera efter stad&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;3. Sortera efter datum (skapad)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font&gt;Välj ett alternativ: 1&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="-370" y="-920" width="370" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="24">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-170" y="-730" as="sourcePoint"/>
+                        <mxPoint x="-185" y="-760" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="26" value="&lt;div&gt;SORTERAD KUNDLISTA&lt;/div&gt;&lt;div&gt;--------------------------&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;ID&amp;nbsp; &amp;nbsp;Namn&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Email&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Stad&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Skapad&lt;/div&gt;&lt;div&gt;--------------------------------------------------------------------------&lt;/div&gt;&lt;div&gt;9&amp;nbsp; &amp;nbsp; Agnes&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; agnes@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Örebro&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 2025-11-01&lt;/div&gt;&lt;div&gt;11&amp;nbsp; &amp;nbsp;Fredric&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; fredric@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Örebro&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 2025-11-01&lt;/div&gt;&lt;div&gt;1&amp;nbsp; &amp;nbsp; Frida&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; frida@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Malmö&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;2025-10-31&lt;/div&gt;&lt;div&gt;14&amp;nbsp; &amp;nbsp;Karl&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;karl@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Västerås&amp;nbsp; &amp;nbsp; &amp;nbsp; 2025-11-01&lt;/div&gt;&lt;div&gt;8&amp;nbsp; &amp;nbsp; Lisa&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;lisa@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Örebro&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; 2025-11-01&lt;/div&gt;&lt;div&gt;4&amp;nbsp; &amp;nbsp; Lovisa&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;lovisa@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;Göteborg&amp;nbsp; &amp;nbsp; &amp;nbsp; 2025-10-31&lt;/div&gt;&lt;div&gt;2&amp;nbsp; &amp;nbsp; Michele&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; michele@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Malmö&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;2025-10-31&lt;/div&gt;&lt;div&gt;16&amp;nbsp; &amp;nbsp;Sofia&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; sofia@test.se&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Uppsala&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;2025-11-02&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Tryck på valfri tangent för att återgå till menyn.&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="-370" y="-760" width="370" height="270" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="" style="endArrow=classic;startArrow=classic;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="2" target="24">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-200" y="-990" as="sourcePoint"/>
+                        <mxPoint x="-560" y="-830" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
