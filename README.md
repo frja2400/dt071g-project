@@ -1,7 +1,6 @@
 # Kundregister i C# (.NET & SQLite)
 
-Detta projekt är en konsollapplikation skriven i **C#** med **.NET 9.0**.  
-Applikationen låter användaren hantera ett kundregister där alla uppgifter lagras i en **SQLite-databas** med full **CRUD-funktionalitet** (Create, Read, Update, Delete).
+Detta projekt är en konsollapplikation skriven i **C#** med **.NET 9.0**. Applikationen låter användaren hantera ett kundregister där alla uppgifter lagras i en **SQLite-databas** med full **CRUD-funktionalitet** (Create, Read, Update, Delete).
 
 ### Funktioner
 
@@ -40,4 +39,5 @@ DT071G-PROJECT/
 - cd dt071g-project
 - dotnet add package Microsoft.Data.Sqlite
 - dotnet run
-Databasen customers.db skapas automatiskt första gången programmet körs.
+
+Databasen `customers.db` skapas automatiskt första gången programmet körs.
