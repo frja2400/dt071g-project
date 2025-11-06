@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace CustomerRegister
 {
 
-    //Klass som designar och formatterar applikationen.
+    //Klass som designar och formaterar applikationen.
     public static class UIHelper
     {
         //Metod som designar och skriver ut huvudrubrik
